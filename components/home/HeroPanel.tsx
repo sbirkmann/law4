@@ -1,35 +1,46 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { site } from "@/data/site";
-import { insights } from "@/data/insights";
-import { Reveal } from "@/components/ui/Reveal";
+import { Eyebrow } from "@/components/ui/Headline";
 
+const links = [
+  { label: "Beratungsspektrum", href: "/kompetenz/beratungsspektrum" },
+  { label: "Unsere Experten", href: "/experten" },
+  { label: "Über die Sozietät", href: "/sozietaet" },
+];
+
+/** Hero: display headline across 9 columns, intro left (4), image right (7). CSS-only reveal, no client JS. */
 export function HeroPanel() {
-  const tiles = insights.slice(0, 6);
   return (
-    <section className="container-x pt-8 lg:pt-12" aria-labelledby="hero-title">
-      <div className="relative lg:min-h-[600px]">
-        <div className="panel-animated flex aspect-[16/9] w-full items-center justify-center text-white lg:absolute lg:left-0 lg:top-0 lg:aspect-auto lg:h-[540px] lg:w-[48%] lg:justify-start">
-          <div className="relative z-10 px-6 py-10 text-center sm:px-12 lg:w-[64%] lg:pr-[9%] lg:text-right">
-            <p className="text-[11px] uppercase tracking-[0.32em] text-white/60">Seit {site.founded} · Sechs Standorte</p>
-            <h1 id="hero-title" className="font-serif mt-5 text-[34px] font-medium leading-none tracking-tight sm:text-[40px]">{site.name}</h1>
-            <span aria-hidden className="mt-6 inline-block h-px w-12 bg-copper" />
-            <p className="mt-6 text-[17px] font-light leading-relaxed text-white/90 sm:text-[19px]">{site.claim}</p>
+    <section className="container-x pb-16 pt-8 lg:pb-24 lg:pt-16" aria-labelledby="hero-title">
+      <div className="grid-12">
+        <div className="col-span-12 lg:col-span-10">
+          <div className="rise"><Eyebrow>Wirtschaftskanzlei · Seit {site.founded} · Sechs Standorte</Eyebrow></div>
+          <h1 id="hero-title" className="rise headline text-display mt-8 text-pine [--rise-delay:80ms]">{site.claim}</h1>
+        </div>
+
+        <div className="rise col-span-12 [--rise-delay:160ms] lg:col-span-4 lg:pt-6">
+          <p className="measure text-base text-muted">
+            Rund 620 Mitarbeitende, davon über 300 Anwältinnen und Anwälte, beraten an sechs Standorten Unternehmen, Investoren und die öffentliche Hand in allen Fragen des Wirtschaftsrechts.
+          </p>
+          <ul className="mt-8 divide-y divide-line border-y border-line">
+            {links.map((l) => (
+              <li key={l.href}>
+                <Link href={l.href} className="row-link -mx-3 flex items-center justify-between px-3 py-3">
+                  <span className="row-title text-sm font-medium tracking-wide text-pine">{l.label}</span>
+                  <ArrowUpRight className="row-arrow h-4 w-4 text-muted" strokeWidth={1.75} aria-hidden />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="rise col-span-12 [--rise-delay:240ms] lg:col-span-7 lg:col-start-6">
+          <div className="duotone relative aspect-[3/2] w-full">
+            <Image src="/images/office-1.jpg" alt="Konferenzraum mit langem Tisch und schwarzen Stühlen" fill priority sizes="(min-width:1024px) 52vw, 100vw" className="object-cover" />
           </div>
         </div>
-        <ul className="relative z-10 mt-4 grid gap-4 sm:grid-cols-2 lg:ml-[35%] lg:mt-0 lg:grid-cols-3 lg:pt-[84px]">
-          {tiles.map((t, i) => (
-            <Reveal as="li" key={t.slug} delay={i * 0.06}>
-              <Link href={`/aktuelles/${t.slug}`} className="group relative block aspect-[5/4] overflow-hidden bg-stone shadow-[0_18px_40px_-24px_rgba(0,0,0,0.45)]">
-                <span className="duotone absolute inset-0 block"><Image src={t.image} alt="" fill sizes="(min-width:1024px) 22vw, (min-width:640px) 50vw, 100vw" className="object-cover transition-transform duration-[1200ms] ease-out-expo group-hover:scale-105" /></span>
-                <span className="absolute bottom-0 left-0 right-5 border-t-2 border-copper bg-white px-5 py-4 transition-colors group-hover:text-copper">
-                  <span className="block text-[10px] uppercase tracking-[0.22em] text-muted">{t.type === "Deal" ? "Mandat" : t.type === "Presse" ? "Kanzlei News" : "Know-how"}</span>
-                  <span className="mt-1 block break-words text-[14.5px] leading-snug text-ink [hyphens:auto]" lang="de">{t.title}</span>
-                </span>
-              </Link>
-            </Reveal>
-          ))}
-        </ul>
       </div>
     </section>
   );

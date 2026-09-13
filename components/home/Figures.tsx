@@ -1,21 +1,24 @@
 import { figures } from "@/data/company";
 import { Counter } from "@/components/ui/Counter";
+import { Eyebrow } from "@/components/ui/Headline";
+import { Reveal } from "@/components/ui/Reveal";
 
-export function Figures() {
+/** Key figures: large serif digits with count-up, hairline dividers, generous vertical space. */
+export function Figures({ index = "05" }: { index?: string }) {
   return (
-    <section className="container-x py-16 lg:py-20" aria-label="In Zahlen">
-      <p className="eyebrow-lines">In Zahlen</p>
-      <dl className="mx-auto mt-10 grid max-w-4xl gap-10 sm:grid-cols-3">
-        {figures.map((f) => (
-          <div key={f.label} className="text-center">
-            <dd className="serif-number text-[64px] leading-none text-pine">
-              <span className="inline-block border-b border-copper pb-2"><Counter to={f.value} suffix={f.suffix} /></span>
+    <section className="container-x section-open" aria-label="In Zahlen">
+      <Eyebrow index={index}>In Zahlen</Eyebrow>
+      <dl className="mt-12 grid border-t border-line sm:grid-cols-3">
+        {figures.map((f, i) => (
+          <Reveal as="div" key={f.label} delay={i * 0.08} className="border-b border-line py-8 sm:border-b-0 sm:py-12 sm:pr-8 sm:[&:not(:first-child)]:border-l sm:[&:not(:first-child)]:pl-8">
+            <dd className="serif-number text-figure text-pine">
+              <Counter to={f.value} suffix={f.suffix} />
             </dd>
-            <dt className="mx-auto mt-5 max-w-[16rem] text-[14.5px] leading-relaxed text-muted">{f.label}</dt>
-          </div>
+            <dt className="mt-6 max-w-[18rem] text-sm text-muted">{f.label}</dt>
+          </Reveal>
         ))}
       </dl>
-      <p className="mt-8 text-center text-[11px] text-muted-light">Fiktive Demo-Werte.</p>
+      <p className="label mt-8 text-xs text-muted-light">Fiktive Demo-Werte.</p>
     </section>
   );
 }

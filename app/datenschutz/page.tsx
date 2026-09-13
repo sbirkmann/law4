@@ -18,7 +18,7 @@ export default function Page() {
   return (
     <>
       <PageHead crumbs={[{ label: "Datenschutz" }]} title="Datenschutzhinweis" />
-      <div className="container-x mt-12 mx-auto max-w-3xl space-y-8 text-[15.5px] leading-relaxed text-ink">
+      <div className="container-x mt-12 mx-auto max-w-3xl space-y-8 text-base leading-relaxed text-ink">
         {sections.map((s) => <section key={s.id} id={s.id} className="scroll-mt-24"><h2 className="headline headline-md text-pine">{s.h}</h2>{s.p.map((t, i) => <p key={i} className="mt-3">{t}</p>)}</section>)}
       </div>
     </>

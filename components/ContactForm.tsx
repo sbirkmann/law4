@@ -5,8 +5,8 @@ import Link from "next/link";
 import { useState, type FormEvent } from "react";
 import { offices } from "@/data/offices";
 
-const field = "w-full border border-line bg-white px-4 py-3 text-[15px] text-ink outline-none transition focus:border-pine";
-const label = "mb-1.5 block text-[12px] font-semibold uppercase tracking-[0.14em] text-muted";
+const field = "w-full border border-line bg-paper px-4 py-3 text-base text-ink outline-none transition focus:border-pine";
+const label = "mb-1.5 block text-sm font-semibold uppercase tracking-wider text-muted";
 
 export function ContactForm() {
   const [sent, setSent] = useState(false);
@@ -15,7 +15,7 @@ export function ContactForm() {
     return (
       <div role="status" className="bg-stone p-8">
         <p className="headline headline-md text-pine">Vielen Dank.</p>
-        <p className="mt-3 text-[15px] leading-relaxed text-ink">Dies ist eine Demo-Website. Ihre Nachricht wurde nicht versendet. Auf der echten Website würde sich das zuständige Büro innerhalb eines Werktags melden.</p>
+        <p className="mt-3 text-base leading-relaxed text-ink">Dies ist eine Demo-Website. Ihre Nachricht wurde nicht versendet. Auf der echten Website würde sich das zuständige Büro innerhalb eines Werktags melden.</p>
         <button type="button" onClick={() => setSent(false)} className="arrow-link mt-6">Formular erneut anzeigen</button>
       </div>
     );
@@ -33,9 +33,9 @@ export function ContactForm() {
       <div><label htmlFor="nachricht" className={label}>Ihr Anliegen</label><textarea id="nachricht" name="nachricht" rows={6} required className={field} /></div>
       <div className="flex items-start gap-3">
         <input id="ds" type="checkbox" required className="mt-1 h-4 w-4 accent-pine" />
-        <label htmlFor="ds" className="text-[13.5px] leading-relaxed text-muted">Ich habe die <Link href="/datenschutz" className="text-copper underline underline-offset-4">Datenschutzhinweise</Link> gelesen. Bitte übermitteln Sie keine vertraulichen Informationen, bevor ein Mandat besteht.</label>
+        <label htmlFor="ds" className="text-sm leading-relaxed text-muted">Ich habe die <Link href="/datenschutz" className="text-copper underline underline-offset-4">Datenschutzhinweise</Link> gelesen. Bitte übermitteln Sie keine vertraulichen Informationen, bevor ein Mandat besteht.</label>
       </div>
-      <button type="submit" className="inline-flex h-11 items-center bg-pine px-7 text-[12.5px] font-semibold uppercase tracking-[0.16em] text-white transition hover:bg-copper">Nachricht senden</button>
+      <button type="submit" className="inline-flex h-11 items-center bg-pine px-7 text-sm font-semibold uppercase tracking-wider text-paper transition hover:bg-copper">Nachricht senden</button>
     </form>
   );
 }

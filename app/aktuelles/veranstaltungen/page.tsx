@@ -13,10 +13,10 @@ export default function EventsPage() {
         <ul className="grid gap-4 md:grid-cols-2">
           {events.map((e) => (
             <li key={e.slug} className="flex flex-col bg-stone p-7">
-              <span className="self-start bg-pine px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-white">{e.tag}</span>
-              <h2 className="mt-4 text-[19px] font-medium leading-snug text-ink">{e.title}</h2>
-              <p className="mt-3 flex-1 text-[14.5px] leading-relaxed text-muted">{e.text}</p>
-              <p className="mt-5 text-[13px] text-ink"><time dateTime={e.date}>{e.dateLabel}</time> · {e.place}</p>
+              <span className="self-start bg-pine px-2.5 py-1 text-xs font-semibold uppercase tracking-wider text-paper">{e.tag}</span>
+              <h2 className="mt-4 text-lg font-medium leading-snug text-ink">{e.title}</h2>
+              <p className="mt-3 flex-1 text-base leading-relaxed text-muted">{e.text}</p>
+              <p className="mt-5 text-sm text-ink"><time dateTime={e.date}>{e.dateLabel}</time> · {e.place}</p>
               <Link href="/kontakt" className="arrow-link mt-4">Anmelden</Link>
             </li>
           ))}

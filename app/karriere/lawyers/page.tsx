@@ -24,8 +24,8 @@ export default function Page() {
             <div className={i % 2 ? "lg:col-span-5 lg:order-2" : "lg:col-span-5"}><div className="relative aspect-[4/3] overflow-hidden"><Image src={t.image} alt="" fill sizes="(min-width:1024px) 40vw, 100vw" className="object-cover" /></div></div>
             <div className="lg:col-span-7">
               <h2 className="headline headline-lg text-pine">{t.title}</h2>
-              <p className="mt-4 text-[16px] leading-relaxed text-ink">{t.text}</p>
-              <ul className="mt-6 space-y-2 text-[15px]">{details[t.slug]?.map((d) => <li key={d} className="flex gap-3"><span aria-hidden className="mt-2.5 h-px w-4 shrink-0 bg-copper" />{d}</li>)}</ul>
+              <p className="mt-4 text-base leading-relaxed text-ink">{t.text}</p>
+              <ul className="mt-6 space-y-2 text-base">{details[t.slug]?.map((d) => <li key={d} className="flex gap-3"><span aria-hidden className="mt-2.5 h-px w-4 shrink-0 bg-copper" />{d}</li>)}</ul>
               <p className="mt-6"><ArrowLink href="/karriere/jobs">Passende Jobs</ArrowLink></p>
             </div>
           </section>

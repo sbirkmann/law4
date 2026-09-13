@@ -8,7 +8,7 @@ export default function Page() {
   return (
     <>
       <PageHead crumbs={[{ label: "Impressum" }]} title="Impressum" />
-      <div className="container-x mt-12 mx-auto max-w-3xl space-y-8 text-[15.5px] leading-relaxed text-ink">
+      <div className="container-x mt-12 mx-auto max-w-3xl space-y-8 text-base leading-relaxed text-ink">
         <div className="bg-stone p-6"><p><strong className="font-semibold">Demo-Hinweis:</strong> Diese Website ist ein fiktives Demonstrationsprojekt. Es gibt keine Kanzlei Ostholm Rütter. Alle Angaben sind erfunden und erfüllen keine gesetzlichen Impressumspflichten.</p></div>
         <section><h2 className="headline headline-md text-pine">Angaben gemäß § 5 DDG</h2><p className="mt-3">{site.legalName}<br />Taunusanlage 70<br />60325 Frankfurt am Main<br />Telefon: {site.phone}<br />E-Mail: {site.email}</p></section>
         <section><h2 className="headline headline-md text-pine">Vertretungsberechtigte Partner</h2><p className="mt-3">Dr. Katharina Ostholm, Dr. Matthias Rütter (Managementkomitee, fiktiv)</p></section>

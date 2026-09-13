@@ -1,13 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { Barlow_Condensed, Lora, Source_Sans_3 } from "next/font/google";
+import { Instrument_Sans, Newsreader } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { site } from "@/data/site";
 import "./globals.css";
 
-const source = Source_Sans_3({ subsets: ["latin"], variable: "--font-source", display: "swap", weight: ["400", "500", "600"] });
-const barlow = Barlow_Condensed({ subsets: ["latin"], variable: "--font-barlow", display: "swap", weight: ["500", "600"] });
-const lora = Lora({ subsets: ["latin"], variable: "--font-lora", display: "swap", weight: ["500"] });
+const grotesk = Instrument_Sans({ subsets: ["latin"], variable: "--font-grotesk", display: "swap" });
+const serif = Newsreader({ subsets: ["latin"], variable: "--font-serif-var", display: "swap", style: ["normal", "italic"], axes: ["opsz"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -19,7 +18,7 @@ export const metadata: Metadata = {
   alternates: { canonical: site.url },
 };
 
-export const viewport: Viewport = { themeColor: "#10352b", width: "device-width", initialScale: 1 };
+export const viewport: Viewport = { themeColor: "#0f2f26", width: "device-width", initialScale: 1 };
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -34,7 +33,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="de" className={`${source.variable} ${barlow.variable} ${lora.variable}`}>
+    <html lang="de" className={`${grotesk.variable} ${serif.variable}`}>
       <body className="flex min-h-dvh flex-col">
         <Header />
         <main id="inhalt" className="flex-1">{children}</main>

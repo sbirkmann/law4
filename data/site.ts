@@ -11,12 +11,13 @@ export const site = {
   founded: 1994,
 } as const;
 
-export type NavItem = { label: string; href: string; children?: NavItem[] };
+export type NavItem = { label: string; href: string; intro?: string; children?: NavItem[] };
 
 export const nav: NavItem[] = [
   {
     label: "Aktuelles",
     href: "/aktuelles",
+    intro: "Mandate, Kanzlei-News, Fachbeiträge und Veranstaltungen: was Ostholm Rütter bewegt.",
     children: [
       { label: "Mandate & Kanzlei News", href: "/aktuelles/news" },
       { label: "Know-how", href: "/aktuelles/know-how" },
@@ -26,6 +27,7 @@ export const nav: NavItem[] = [
   {
     label: "Kompetenz",
     href: "/kompetenz",
+    intro: "Full Service auf höchstem Niveau: zwölf Rechtsgebiete, sechs Branchen, vier Fokusthemen.",
     children: [
       { label: "Beratungsspektrum", href: "/kompetenz/beratungsspektrum" },
       { label: "Branchenschwerpunkte", href: "/kompetenz/branchenschwerpunkte" },
@@ -45,6 +47,7 @@ export const nav: NavItem[] = [
   {
     label: "Karriere",
     href: "/karriere",
+    intro: "Für Juristinnen und Juristen, Legal Talents, Assistenzen und Business Professionals.",
     children: [
       { label: "Karriere bei Ostholm Rütter", href: "/karriere" },
       {
@@ -73,6 +76,7 @@ export const nav: NavItem[] = [
   {
     label: "Sozietät",
     href: "/sozietaet",
+    intro: "Unabhängig seit 1994. Partnerschaftlich organisiert, unternehmerisch geführt.",
     children: [
       { label: "Über Ostholm Rütter", href: "/sozietaet" },
       { label: "Unsere Werte", href: "/sozietaet/werte" },

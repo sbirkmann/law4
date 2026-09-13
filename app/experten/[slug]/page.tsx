@@ -28,18 +28,18 @@ export default async function LawyerPage({ params }: { params: Promise<Params> }
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-4"><div className="relative aspect-[4/5] overflow-hidden bg-stone"><Image src={l.image} alt={`Portrait von ${l.name}`} fill priority sizes="(min-width:1024px) 33vw, 100vw" className="object-cover object-top" /></div></div>
           <div className="lg:col-span-8">
-            <p className="text-[12px] uppercase tracking-[0.2em] text-copper">{l.title}</p>
+            <p className="text-sm uppercase tracking-widest text-copper">{l.title}</p>
             <h1 className="headline headline-xl mt-2 text-pine">{l.name}</h1>
-            <p className="mt-2 text-[15px] text-muted">Rechtsanwältin/Rechtsanwalt · <Link href={`/sozietaet/standorte#${l.office}`} className="hover:text-copper">{office?.city}</Link></p>
-            <div className="mt-6 flex flex-wrap gap-6 text-[14px]">
+            <p className="mt-2 text-base text-muted">Rechtsanwältin/Rechtsanwalt · <Link href={`/sozietaet/standorte#${l.office}`} className="hover:text-copper">{office?.city}</Link></p>
+            <div className="mt-6 flex flex-wrap gap-6 text-base">
               <a href={`tel:${l.phone.replace(/\s/g, "")}`} className="inline-flex items-center gap-2 hover:text-copper"><Phone className="h-4 w-4" strokeWidth={1.75} aria-hidden />{l.phone}</a>
               <a href={`mailto:${l.email}`} className="inline-flex items-center gap-2 hover:text-copper"><Mail className="h-4 w-4" strokeWidth={1.75} aria-hidden />{l.email}</a>
             </div>
-            <p className="mt-8 text-[16px] leading-relaxed text-ink">{l.bio}</p>
+            <p className="mt-8 text-base leading-relaxed text-ink">{l.bio}</p>
             <div className="mt-10 grid gap-8 sm:grid-cols-3">
-              <div><h2 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted">Kompetenzen</h2><ul className="mt-3 space-y-1.5 text-[14.5px]">{l.practices.map((p) => { const c = capabilities.find((x) => x.slug === p); return c ? <li key={p}><Link href={`/kompetenz/${c.slug}`} className="hover:text-copper">{c.title}</Link></li> : null; })}</ul></div>
-              <div><h2 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted">Werdegang</h2><ul className="mt-3 space-y-1.5 text-[14.5px]">{l.education.map((e) => <li key={e}>{e}</li>)}</ul></div>
-              <div><h2 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted">Sprachen</h2><ul className="mt-3 space-y-1.5 text-[14.5px]">{l.languages.map((e) => <li key={e}>{e}</li>)}</ul></div>
+              <div><h2 className="text-xs font-semibold uppercase tracking-wider text-muted">Kompetenzen</h2><ul className="mt-3 space-y-1.5 text-base">{l.practices.map((p) => { const c = capabilities.find((x) => x.slug === p); return c ? <li key={p}><Link href={`/kompetenz/${c.slug}`} className="hover:text-copper">{c.title}</Link></li> : null; })}</ul></div>
+              <div><h2 className="text-xs font-semibold uppercase tracking-wider text-muted">Werdegang</h2><ul className="mt-3 space-y-1.5 text-base">{l.education.map((e) => <li key={e}>{e}</li>)}</ul></div>
+              <div><h2 className="text-xs font-semibold uppercase tracking-wider text-muted">Sprachen</h2><ul className="mt-3 space-y-1.5 text-base">{l.languages.map((e) => <li key={e}>{e}</li>)}</ul></div>
             </div>
           </div>
         </div>

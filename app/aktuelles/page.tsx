@@ -28,10 +28,10 @@ export default function AktuellesPage() {
         <ul className="mt-6 divide-y divide-line border-t border-line">
           {events.slice(0, 3).map((e) => (
             <li key={e.slug} className="grid gap-2 py-5 sm:grid-cols-[110px_1fr] sm:gap-6">
-              <time dateTime={e.date} className="text-[13px] text-muted">{e.dateLabel}</time>
+              <time dateTime={e.date} className="text-sm text-muted">{e.dateLabel}</time>
               <div>
-                <p className="text-[17px] font-medium text-ink">{e.title}</p>
-                <p className="mt-1 text-[13px] text-muted">{e.tag} · {e.place}</p>
+                <p className="text-base font-medium text-ink">{e.title}</p>
+                <p className="mt-1 text-sm text-muted">{e.tag} · {e.place}</p>
               </div>
             </li>
           ))}

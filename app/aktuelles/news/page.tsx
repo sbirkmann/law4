@@ -6,7 +6,7 @@ import { buildMetadata } from "@/lib/metadata";
 
 export const metadata = buildMetadata({ title: "Mandate & Kanzlei News", description: "Aktuelle Mandate und Kanzlei-Meldungen von Ostholm Rütter (Demo).", path: "/aktuelles/news" });
 
-const sel = "h-10 w-full border border-line bg-white px-3 text-[13.5px] text-ink";
+const sel = "h-10 w-full border border-line bg-paper px-3 text-sm text-ink";
 
 export default function NewsPage() {
   const items = [...deals, ...press].sort((a, b) => b.date.localeCompare(a.date));

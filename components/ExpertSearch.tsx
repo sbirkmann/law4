@@ -10,7 +10,7 @@ import { capabilities } from "@/data/practices";
 import { cn } from "@/lib/utils";
 
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-const select = "h-9 w-full border-b border-white/40 bg-transparent pr-6 text-[13px] text-white outline-none appearance-none bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2214%22 height=%2214%22 fill=%22none%22 stroke=%22white%22 stroke-width=%221.5%22><path d=%22M3 5l4 4 4-4%22/></svg>')] bg-[length:14px] bg-[right_0_center] bg-no-repeat";
+const select = "h-9 w-full border-b border-paper/40 bg-transparent pr-6 text-sm text-paper outline-none appearance-none bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2214%22 height=%2214%22 fill=%22none%22 stroke=%22white%22 stroke-width=%221.5%22><path d=%22M3 5l4 4 4-4%22/></svg>')] bg-[length:14px] bg-[right_0_center] bg-no-repeat";
 
 export function ExpertSearch({ initialPractice = "" }: { initialPractice?: string }) {
   const [q, setQ] = useState("");
@@ -28,19 +28,19 @@ export function ExpertSearch({ initialPractice = "" }: { initialPractice?: strin
 
   return (
     <div id="suche" className="scroll-mt-24">
-      <div className="panel-animated mx-auto max-w-4xl px-6 py-12 text-white sm:px-16 lg:px-24">
+      <div className="panel-animated mx-auto max-w-4xl px-6 py-12 text-paper sm:px-16 lg:px-24">
         <div className="relative z-10">
-          <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Finden Sie Ihren Experten" aria-label="Nach Name suchen" className="h-12 w-full bg-white px-4 text-[15px] text-ink outline-none placeholder:text-muted-light" />
-          <p className="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/80">Filtern nach:</p>
+          <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Finden Sie Ihren Experten" aria-label="Nach Name suchen" className="h-12 w-full bg-paper px-4 text-base text-ink outline-none placeholder:text-muted-light" />
+          <p className="mt-6 text-xs font-semibold uppercase tracking-wider text-paper/80">Filtern nach:</p>
           <div className="mt-2 grid gap-4 sm:grid-cols-3">
             <select value={practice} onChange={(e) => setPractice(e.target.value)} className={select} aria-label="Kompetenz"><option value="" className="text-ink">Kompetenz</option>{capabilities.map((c) => <option key={c.slug} value={c.slug} className="text-ink">{c.title}</option>)}</select>
             <select value={office} onChange={(e) => setOffice(e.target.value)} className={select} aria-label="Standort"><option value="" className="text-ink">Standort</option>{offices.map((o) => <option key={o.slug} value={o.slug} className="text-ink">{o.short}</option>)}</select>
             <select value={title} onChange={(e) => setTitle(e.target.value)} className={select} aria-label="Position"><option value="" className="text-ink">Position</option>{["Partnerin", "Partner", "Counsel", "Associate"].map((t) => <option key={t} value={t} className="text-ink">{t}</option>)}</select>
           </div>
-          <p className="mt-6 text-[12px] text-white/80">Alphabet</p>
-          <ul className="mt-1 flex flex-wrap gap-x-2.5 gap-y-1 text-[12px]">
-            <li><button type="button" onClick={() => setLetter("")} className={cn("underline-offset-4", letter === "" ? "underline" : "text-white/70 hover:text-white")}>Alle</button></li>
-            {letters.map((L) => <li key={L}><button type="button" onClick={() => setLetter(L)} className={cn("underline-offset-4", letter === L ? "underline" : "text-white/70 hover:text-white")}>{L}</button></li>)}
+          <p className="mt-6 text-sm text-paper/80">Alphabet</p>
+          <ul className="mt-1 flex flex-wrap gap-x-2.5 gap-y-1 text-sm">
+            <li><button type="button" onClick={() => setLetter("")} className={cn("underline-offset-4", letter === "" ? "underline" : "text-paper/70 hover:text-paper")}>Alle</button></li>
+            {letters.map((L) => <li key={L}><button type="button" onClick={() => setLetter(L)} className={cn("underline-offset-4", letter === L ? "underline" : "text-paper/70 hover:text-paper")}>{L}</button></li>)}
           </ul>
         </div>
       </div>
@@ -48,9 +48,9 @@ export function ExpertSearch({ initialPractice = "" }: { initialPractice?: strin
       <h2 className="headline headline-lg mt-14 text-pine">Ihre Suchergebnisse</h2>
       <p className="sr-only" role="status">{list.length} Ergebnisse</p>
       <div className="mt-4 overflow-x-auto">
-        <table className="w-full min-w-[640px] border-collapse text-[13.5px]">
+        <table className="w-full min-w-[640px] border-collapse text-sm">
           <thead>
-            <tr className="bg-pine text-left text-[12px] font-semibold text-white">
+            <tr className="bg-pine text-left text-sm font-semibold text-paper">
               <th scope="col" className="px-3 py-2.5 font-semibold" colSpan={2}>Name</th>
               <th scope="col" className="px-3 py-2.5 font-semibold">Kompetenz</th>
               <th scope="col" className="px-3 py-2.5 font-semibold">Kontakt</th>
@@ -81,9 +81,9 @@ export function ExpertSearch({ initialPractice = "" }: { initialPractice?: strin
             })}
           </tbody>
         </table>
-        {list.length === 0 && <p className="py-8 text-center text-[15px] text-muted">Keine Treffer. Passen Sie die Filter an.</p>}
+        {list.length === 0 && <p className="py-8 text-center text-base text-muted">Keine Treffer. Passen Sie die Filter an.</p>}
       </div>
-      <div className="mt-3 flex items-center justify-between border-y border-dotted border-line py-2 text-[12px] text-muted">
+      <div className="mt-3 flex items-center justify-between border-y border-dotted border-line py-2 text-sm text-muted">
         <span aria-hidden />
         <span>1 von 1</span>
         <span className="text-muted-light">Nächste Seite ›</span>
