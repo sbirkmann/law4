@@ -12,10 +12,10 @@ export function FocusRow() {
         {focusTopics.map((f, i) => (
           <Reveal as="li" key={f.slug} delay={i * 0.06}>
             <Link href={`/kompetenz/fokusthemen/${f.slug}`} className="group block text-center">
-              <span className="img-zoom relative mx-auto block h-32 w-32 overflow-hidden rounded-full bg-stone ring-4 ring-white transition-all duration-500 group-hover:ring-copper-soft sm:h-40 sm:w-40">
+              <span className="img-zoom duotone relative mx-auto block h-32 w-32 overflow-hidden rounded-full bg-stone ring-1 ring-line ring-offset-4 ring-offset-white transition-all duration-500 group-hover:ring-copper sm:h-40 sm:w-40">
                 <Image src={f.image} alt="" fill sizes="160px" className="object-cover" />
               </span>
-              <span className="mt-5 block text-[17px] text-ink transition-colors group-hover:text-copper">{f.title}</span>
+              <span className="mt-6 block text-[16px] text-ink transition-colors group-hover:text-copper">{f.title}</span>
             </Link>
           </Reveal>
         ))}

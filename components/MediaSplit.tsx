@@ -8,7 +8,7 @@ export function MediaSplit({ title, image, alt, children, links, flip = false, t
   return (
     <Reveal className="container-x mt-16 lg:mt-20">
       <div className={cn("grid lg:grid-cols-12", tone === "stone" ? "bg-stone" : "bg-white ring-1 ring-line")}>
-        <div className={cn("relative aspect-[4/3] lg:col-span-5 lg:aspect-auto lg:min-h-[420px]", flip && "lg:order-2")}>
+        <div className={cn("duotone relative aspect-[4/3] lg:col-span-5 lg:aspect-auto lg:min-h-[420px]", flip && "lg:order-2")}>
           <Image src={image} alt={alt} fill sizes="(min-width:1024px) 40vw, 100vw" className="object-cover" />
         </div>
         <div className={cn("p-7 sm:p-10 lg:col-span-7 lg:p-12", flip && "lg:order-1")}>

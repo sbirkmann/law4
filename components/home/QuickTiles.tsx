@@ -21,9 +21,9 @@ export function QuickTiles() {
             const Icon = t.icon;
             return (
               <Reveal as="li" key={t.href} delay={i * 0.05}>
-                <Link href={t.href} className="group flex flex-col items-center gap-5 bg-white px-4 py-8 transition-all duration-500 ease-out-expo hover:-translate-y-1 hover:shadow-[0_18px_40px_-20px_rgba(16,53,43,0.45)]">
-                  <span className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-copper text-white transition-colors duration-500 group-hover:bg-pine">
-                    <Icon className="h-7 w-7" strokeWidth={1.4} aria-hidden />
+                <Link href={t.href} className="card group flex flex-col items-center gap-5 px-4 py-9">
+                  <span className="inline-flex h-16 w-16 items-center justify-center rounded-full border border-copper/60 text-copper transition-all duration-500 group-hover:border-pine group-hover:bg-pine group-hover:text-white">
+                    <Icon className="h-6 w-6" strokeWidth={1.25} aria-hidden />
                   </span>
                   <span className="headline headline-md text-pine">{t.label}</span>
                 </Link>

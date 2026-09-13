@@ -57,7 +57,7 @@ export function Header() {
                       aria-current={active(item.href) ? "page" : undefined}
                       aria-haspopup={item.children ? "true" : undefined}
                       aria-expanded={item.children ? level1?.href === item.href : undefined}
-                      className={cn("font-condensed text-[15px] font-500 uppercase tracking-[0.12em] transition-colors", active(item.href) || level1?.href === item.href ? "text-pine" : "text-muted hover:text-pine")}
+                      className={cn("font-condensed text-[14px] uppercase tracking-[0.2em] transition-colors", active(item.href) || level1?.href === item.href ? "text-pine" : "text-muted hover:text-pine")}
                     >
                       {item.label}
                     </Link>
@@ -82,7 +82,7 @@ export function Header() {
               <ul className="container-x flex h-[68px] items-center justify-end gap-10">
                 {level1.children.map((c) => (
                   <li key={c.href} onMouseEnter={() => setLevel2(c.children ? c : null)}>
-                    <Link href={c.href} className={cn("inline-flex items-center gap-1.5 font-condensed text-[15px] uppercase tracking-[0.12em] transition-colors hover:text-copper-soft", (active(c.href) || level2?.href === c.href) && "text-copper-soft")}>
+                    <Link href={c.href} className={cn("inline-flex items-center gap-1.5 font-condensed text-[14px] uppercase tracking-[0.2em] transition-colors hover:text-copper-soft", (active(c.href) || level2?.href === c.href) && "text-copper-soft")}>
                       {c.label}
                       {c.children && <ChevronDown className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />}
                     </Link>

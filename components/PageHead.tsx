@@ -26,7 +26,7 @@ export function PageHead({ crumbs, title, accent, eyebrow, intro, className }: {
         {intro && (
           <div className="relative mx-auto mt-14 max-w-3xl border border-line px-6 pb-8 pt-8 text-left sm:px-10">
             {eyebrow && <p className="absolute -top-2.5 left-1/2 -translate-x-1/2 whitespace-nowrap bg-white px-4 text-[13px] uppercase tracking-[0.22em] text-muted">{eyebrow}</p>}
-            <div className="text-[16px] leading-relaxed text-ink">{intro}</div>
+            <div className="font-serif text-[17px] leading-relaxed text-ink">{intro}</div>
           </div>
         )}
       </header>

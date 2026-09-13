@@ -17,7 +17,7 @@ export function Logo({ light = false, className }: { light?: boolean; className?
   return (
     <Link href="/" aria-label="Ostholm Rütter – Startseite" className={cn("inline-flex items-center gap-2.5", className)}>
       <LogoMark light={light} />
-      <span className={cn("font-serif text-[26px] font-medium leading-none tracking-tight", light ? "text-white" : "text-pine")}>
+      <span className={cn("font-serif text-[25px] font-medium leading-none tracking-[-0.01em]", light ? "text-white" : "text-pine")}>
         Ostholm<span className="text-copper"> </span>Rütter
       </span>
     </Link>

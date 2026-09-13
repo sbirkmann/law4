@@ -29,7 +29,7 @@
     html { scroll-behavior: auto; }
     *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
   }
-  body { @apply bg-white text-ink font-sans antialiased; overflow-x: clip; letter-spacing: 0.01em; }
+  body { @apply bg-white text-ink font-sans antialiased; overflow-x: clip; letter-spacing: 0.005em; font-size: 15.5px; line-height: 1.65; }
   ::selection { background: var(--color-copper-soft); color: var(--color-ink); }
   :focus-visible { outline: 2px solid var(--color-copper); outline-offset: 3px; }
   h1, h2, h3 { text-wrap: balance; }
@@ -48,14 +48,14 @@
 /* Condensed uppercase headline, as the template does with Oswald */
 @utility headline {
   font-family: var(--font-condensed);
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.01em;
-  line-height: 1.05;
+  letter-spacing: 0.06em;
+  line-height: 1.08;
 }
-@utility headline-xl { font-size: clamp(2.25rem, 4.2vw, 3rem); }
-@utility headline-lg { font-size: clamp(1.75rem, 3vw, 2.25rem); }
-@utility headline-md { font-size: clamp(1.35rem, 2vw, 1.6rem); }
+@utility headline-xl { font-size: clamp(2rem, 3.6vw, 2.75rem); }
+@utility headline-lg { font-size: clamp(1.6rem, 2.6vw, 2rem); }
+@utility headline-md { font-size: clamp(1.2rem, 1.7vw, 1.4rem); }
 
 /* Eyebrow with hairlines left and right */
 @utility eyebrow-lines {
@@ -63,11 +63,11 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  font-size: 0.8rem;
-  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--color-muted);
-  &::before, &::after { content: ""; height: 1px; width: 2rem; background: var(--color-copper); }
+  &::before, &::after { content: ""; height: 1px; width: 2.5rem; background: var(--color-copper); opacity: 0.7; }
 }
 
 /* Animated brand panel: gradient sweep + two sliding diagonal veils */
@@ -106,9 +106,9 @@
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  font-size: 0.8rem;
+  font-size: 0.74rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--color-copper);
   transition: gap 300ms var(--ease-out-expo);
@@ -125,3 +125,17 @@
   scrollbar-width: none;
   &::-webkit-scrollbar { display: none; }
 }
+
+/* Premium finishing */
+@utility card {
+  background: #fff;
+  border: 1px solid var(--color-line);
+  transition: transform 500ms var(--ease-out-expo), box-shadow 500ms var(--ease-out-expo), border-color 300ms;
+  &:hover { transform: translateY(-3px); box-shadow: 0 24px 48px -28px rgba(16, 53, 43, 0.35); border-color: var(--color-copper); }
+}
+@utility duotone {
+  position: relative;
+  &::after { content: ""; position: absolute; inset: 0; background: linear-gradient(160deg, rgba(16,53,43,0.55), rgba(181,121,63,0.18)); mix-blend-mode: multiply; pointer-events: none; transition: opacity 500ms; }
+  &:hover::after { opacity: 0.55; }
+}
+@utility serif-number { font-family: var(--font-serif); font-weight: 500; letter-spacing: -0.02em; }

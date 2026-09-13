@@ -8,8 +8,8 @@ export function Figures() {
       <dl className="mx-auto mt-10 grid max-w-4xl gap-10 sm:grid-cols-3">
         {figures.map((f) => (
           <div key={f.label} className="text-center">
-            <dd className="headline text-[64px] leading-none text-pine">
-              <span className="inline-block border-b-4 border-copper pb-1"><Counter to={f.value} suffix={f.suffix} /></span>
+            <dd className="serif-number text-[64px] leading-none text-pine">
+              <span className="inline-block border-b border-copper pb-2"><Counter to={f.value} suffix={f.suffix} /></span>
             </dd>
             <dt className="mx-auto mt-5 max-w-[16rem] text-[14.5px] leading-relaxed text-muted">{f.label}</dt>
           </div>
