@@ -10,7 +10,7 @@ export function HeroPanel() {
     <section className="container-x pt-8 lg:pt-12" aria-labelledby="hero-title">
       <div className="relative lg:min-h-[600px]">
         <div className="panel-animated flex aspect-[16/9] w-full items-center justify-center text-white lg:absolute lg:left-0 lg:top-0 lg:aspect-auto lg:h-[540px] lg:w-[48%]">
-          <div className="relative z-10 px-6 py-10 text-center sm:px-12 lg:w-[72%] lg:pr-[10%] lg:text-right">
+          <div className="relative z-10 px-6 py-10 text-center sm:px-12 lg:w-[64%] lg:pr-[9%] lg:text-right">
             <h1 id="hero-title" className="font-sans text-[32px] font-medium tracking-tight sm:text-[36px]">{site.name}</h1>
             <p className="mt-8 text-[18px] leading-relaxed sm:text-[21px]">{site.claim}</p>
           </div>
