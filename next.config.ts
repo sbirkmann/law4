@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
   output: "export",
   trailingSlash: true,
   basePath: repo,
-  images: { unoptimized: true },
+  images: { loader: "custom", loaderFile: "./lib/imageLoader.ts" },
 };
 
 export default nextConfig;

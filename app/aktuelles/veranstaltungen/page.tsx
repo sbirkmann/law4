@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { PageHead } from "@/components/PageHead";
 import { events } from "@/data/events";
 import { buildMetadata } from "@/lib/metadata";
@@ -16,7 +17,7 @@ export default function EventsPage() {
               <h2 className="mt-4 text-[19px] font-medium leading-snug text-ink">{e.title}</h2>
               <p className="mt-3 flex-1 text-[14.5px] leading-relaxed text-muted">{e.text}</p>
               <p className="mt-5 text-[13px] text-ink"><time dateTime={e.date}>{e.dateLabel}</time> · {e.place}</p>
-              <a href="/kontakt" className="arrow-link mt-4">Anmelden</a>
+              <Link href="/kontakt" className="arrow-link mt-4">Anmelden</Link>
             </li>
           ))}
         </ul>

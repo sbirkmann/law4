@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import { useState, type FormEvent } from "react";
 import { offices } from "@/data/offices";
 
@@ -31,7 +33,7 @@ export function ContactForm() {
       <div><label htmlFor="nachricht" className={label}>Ihr Anliegen</label><textarea id="nachricht" name="nachricht" rows={6} required className={field} /></div>
       <div className="flex items-start gap-3">
         <input id="ds" type="checkbox" required className="mt-1 h-4 w-4 accent-pine" />
-        <label htmlFor="ds" className="text-[13.5px] leading-relaxed text-muted">Ich habe die <a href="/datenschutz" className="text-copper underline underline-offset-4">Datenschutzhinweise</a> gelesen. Bitte übermitteln Sie keine vertraulichen Informationen, bevor ein Mandat besteht.</label>
+        <label htmlFor="ds" className="text-[13.5px] leading-relaxed text-muted">Ich habe die <Link href="/datenschutz" className="text-copper underline underline-offset-4">Datenschutzhinweise</Link> gelesen. Bitte übermitteln Sie keine vertraulichen Informationen, bevor ein Mandat besteht.</label>
       </div>
       <button type="submit" className="inline-flex h-11 items-center bg-pine px-7 text-[12.5px] font-semibold uppercase tracking-[0.16em] text-white transition hover:bg-copper">Nachricht senden</button>
     </form>
