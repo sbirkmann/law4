@@ -1,0 +1,11 @@
+export type Office = { slug: string; city: string; short: string; street: string; zip: string; phone: string; fax: string; email: string; image: string; text: string; lawyers: number };
+
+export const offices: Office[] = [
+  { slug: "berlin", city: "Berlin", short: "Berlin", street: "Unter den Linden 14", zip: "10117", phone: "+49 30 00000000", fax: "+49 30 00000001", email: "berlin@ostholm-ruetter.example", image: "/images/city-berlin.jpg", text: "Schnittstelle zu Politik und Regulierung. Schwerpunkte: Öffentliches Wirtschaftsrecht, IP/IT, Restrukturierung.", lawyers: 37 },
+  { slug: "duesseldorf", city: "Düsseldorf", short: "Düsseldorf", street: "Königsallee 60", zip: "40212", phone: "+49 211 00000000", fax: "+49 211 00000001", email: "duesseldorf@ostholm-ruetter.example", image: "/images/duesseldorf.jpg", text: "Schwerpunkte: Kartellrecht, Industrie und Energie, Streitbeilegung.", lawyers: 29 },
+  { slug: "frankfurt", city: "Frankfurt am Main", short: "Frankfurt", street: "Taunusanlage 70", zip: "60325", phone: "+49 69 00000000", fax: "+49 69 00000001", email: "frankfurt@ostholm-ruetter.example", image: "/images/city-frankfurt.jpg", text: "Unser größtes Büro und Sitz der Kanzleiführung. Schwerpunkte: Gesellschaftsrecht/M&A, Banking & Finance, Steuerrecht.", lawyers: 94 },
+  { slug: "hamburg", city: "Hamburg", short: "Hamburg", street: "Am Sandtorkai 3", zip: "20457", phone: "+49 40 00000000", fax: "+49 40 00000001", email: "hamburg@ostholm-ruetter.example", image: "/images/city-hamburg.jpg", text: "In der HafenCity. Schwerpunkte: Streitbeilegung, Immobilienrecht, Handel und Logistik.", lawyers: 48 },
+  { slug: "muenchen", city: "München", short: "München", street: "Maximiliansplatz 9", zip: "80333", phone: "+49 89 00000000", fax: "+49 89 00000001", email: "muenchen@ostholm-ruetter.example", image: "/images/city-muenchen.jpg", text: "Schwerpunkte: Kartellrecht, Arbeitsrecht, Automotive und Technologie.", lawyers: 61 },
+  { slug: "stuttgart", city: "Stuttgart", short: "Stuttgart", street: "Königstraße 28", zip: "70173", phone: "+49 711 00000000", fax: "+49 711 00000001", email: "stuttgart@ostholm-ruetter.example", image: "/images/architecture-3.jpg", text: "Schwerpunkte: Automotive, Maschinenbau, Familienunternehmen.", lawyers: 33 },
+];
+export const getOffice = (slug: string) => offices.find((o) => o.slug === slug);

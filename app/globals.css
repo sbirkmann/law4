@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+@theme {
+  --color-pine: #10352b;
+  --color-pine-deep: #0a251e;
+  --color-pine-mid: #1d5546;
+  --color-pine-soft: #6f8f86;
+  --color-copper: #b5793f;
+  --color-copper-deep: #8f5e2e;
+  --color-copper-soft: #e8d6c1;
+  --color-stone: #ececea;
+  --color-stone-deep: #dedfdb;
+  --color-white: #ffffff;
+  --color-ink: #1d1f1e;
+  --color-muted: #5c6360;
+  --color-muted-light: #9aa19d;
+  --color-line: #d6d8d4;
+
+  --font-sans: var(--font-source), ui-sans-serif, system-ui, sans-serif;
+  --font-condensed: var(--font-barlow), "Arial Narrow", sans-serif;
+  --font-serif: var(--font-lora), Georgia, serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+  body { @apply bg-white text-ink font-sans antialiased; overflow-x: clip; letter-spacing: 0.01em; }
+  ::selection { background: var(--color-copper-soft); color: var(--color-ink); }
+  :focus-visible { outline: 2px solid var(--color-copper); outline-offset: 3px; }
+  h1, h2, h3 { text-wrap: balance; }
+  p { text-wrap: pretty; }
+}
+
+@utility container-x {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 76rem;
+  padding-inline: 1rem;
+  @media (min-width: 640px) { padding-inline: 1.5rem; }
+  @media (min-width: 1024px) { padding-inline: 2rem; }
+}
+
+/* Condensed uppercase headline, as the template does with Oswald */
+@utility headline {
+  font-family: var(--font-condensed);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 1.05;
+}
+@utility headline-xl { font-size: clamp(2.25rem, 4.2vw, 3rem); }
+@utility headline-lg { font-size: clamp(1.75rem, 3vw, 2.25rem); }
+@utility headline-md { font-size: clamp(1.35rem, 2vw, 1.6rem); }
+
+/* Eyebrow with hairlines left and right */
+@utility eyebrow-lines {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  &::before, &::after { content: ""; height: 1px; width: 2rem; background: var(--color-copper); }
+}
+
+/* Animated brand panel: gradient sweep + two sliding diagonal veils */
+@keyframes move-background {
+  0% { background-position: 100% 0; }
+  50% { background-position: 0 0; }
+  100% { background-position: 100% 0; }
+}
+@keyframes slide {
+  0% { transform: translateX(-25%); }
+  100% { transform: translateX(25%); }
+}
+@utility panel-animated {
+  position: relative;
+  overflow: hidden;
+  background-image: linear-gradient(-60deg, #1d5546 3%, #10352b 38%, #4f7a6d 68%, #0a251e 98%);
+  background-size: 185% 100%;
+  animation: move-background 22s ease-in-out infinite alternate;
+  &::before, &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 200%;
+    left: -50%;
+    background-image: linear-gradient(-60deg, rgba(10, 37, 30, 0.28) 50%, transparent 50%);
+    pointer-events: none;
+  }
+  &::before { animation: slide 16s ease-in-out infinite alternate; }
+  &::after { animation: slide 12s ease-in-out infinite alternate-reverse; }
+}
+@utility panel-animated-copper {
+  background-image: linear-gradient(-60deg, #b5793f 3%, #8f5e2e 38%, #d4a06a 68%, #6f4722 98%);
+}
+
+@utility arrow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-copper);
+  transition: gap 300ms var(--ease-out-expo);
+  &:hover { gap: 0.7rem; }
+}
+
+@utility img-zoom {
+  overflow: hidden;
+  & img { transition: transform 800ms var(--ease-out-expo); }
+  &:hover img { transform: scale(1.05); }
+}
+
+@utility scrollbar-none {
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
