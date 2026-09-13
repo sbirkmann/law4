@@ -2,7 +2,7 @@ export const site = {
   name: "Ostholm Rütter",
   legalName: "Ostholm Rütter Rechtsanwälte PartG mbB",
   claim: "Eine der führenden, international tätigen Wirtschaftskanzleien Deutschlands.",
-  url: "https://ostholm-ruetter.example",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   description:
     "Ostholm Rütter ist eine unabhängige deutsche Wirtschaftskanzlei mit Büros in Frankfurt, Hamburg, München, Berlin, Düsseldorf und Stuttgart. Fiktive Demo-Website.",
   email: "info@ostholm-ruetter.example",

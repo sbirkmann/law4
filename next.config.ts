@@ -1,13 +1,11 @@
 import type { NextConfig } from "next";
 
-const repo = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  output: "export",
-  trailingSlash: true,
-  basePath: repo,
-  images: { loader: "custom", loaderFile: "./lib/imageLoader.ts" },
+  images: {
+    formats: ["image/avif", "image/webp"],
+    deviceSizes: [390, 640, 768, 1024, 1280, 1440, 1920],
+  },
 };
 
 export default nextConfig;
