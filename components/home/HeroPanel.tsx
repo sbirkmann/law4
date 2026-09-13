@@ -24,7 +24,7 @@ export function HeroPanel() {
                 <span className="duotone absolute inset-0 block"><Image src={t.image} alt="" fill sizes="(min-width:1024px) 22vw, (min-width:640px) 50vw, 100vw" className="object-cover transition-transform duration-[1200ms] ease-out-expo group-hover:scale-105" /></span>
                 <span className="absolute bottom-0 left-0 right-5 border-t-2 border-copper bg-white px-5 py-4 transition-colors group-hover:text-copper">
                   <span className="block text-[10px] uppercase tracking-[0.22em] text-muted">{t.type === "Deal" ? "Mandat" : t.type === "Presse" ? "Kanzlei News" : "Know-how"}</span>
-                  <span className="mt-1 block text-[14.5px] leading-snug text-ink">{t.title}</span>
+                  <span className="mt-1 block break-words text-[14.5px] leading-snug text-ink [hyphens:auto]" lang="de">{t.title}</span>
                 </span>
               </Link>
             </Reveal>
